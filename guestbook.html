@@ -39,63 +39,31 @@
   <div class="section-head">
     <span class="eyebrow">Guestbook</span>
     <h2 class="titled">留言板</h2>
-    <p class="desc">写下想说的话，提交后会直接保存到云端数据库，我会在下方的留言墙上看到</p>
+    <p class="desc">写下想说的话，留言会保存在 GitHub Discussions 里，我会在第一时间看到</p>
   </div>
 
   <section class="guestbook-wrap">
-
-    <!-- 表单 -->
-    <div class="card">
-      <h3>写下你的留言</h3>
-      <div id="gb-alert" class="alert" role="status" aria-live="polite"></div>
-
-      <form id="gb-form" class="form-grid" novalidate>
-        <div class="field">
-          <label for="gb-name">昵称 <span class="req">*</span></label>
-          <input class="input" id="gb-name" name="name" type="text" maxlength="40" placeholder="想让我怎么称呼你？" required>
-        </div>
-
-        <div class="field">
-          <label>性别</label>
-          <div class="radio-row">
-            <label><input type="radio" name="gender" value="女" checked> 女</label>
-            <label><input type="radio" name="gender" value="男"> 男</label>
-            <label><input type="radio" name="gender" value="保密"> 保密</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="gb-email">邮箱（选填，不会公开展示）</label>
-          <input class="input" id="gb-email" name="email" type="email" maxlength="120" placeholder="方便我回复你时可以填写">
-        </div>
-
-        <div class="field">
-          <label for="gb-message">留言内容 <span class="req">*</span></label>
-          <textarea class="textarea" id="gb-message" name="message" maxlength="1000" placeholder="写点什么吧，最多 1000 字……" required></textarea>
-        </div>
-
-        <div class="form-foot">
-          <span class="counter" id="gb-counter">0 / 1000</span>
-          <button class="btn" id="gb-submit" type="submit">提交留言</button>
-        </div>
-      </form>
-
-      <p class="gb-note">
-        留言内容会公开显示在右侧留言墙上，请不要填写手机号、住址等隐私信息；
-        邮箱只有我本人能看到，用于必要时回复你。
+    <div class="card" style="grid-column: 1 / -1;">
+      <div class="giscus-container"></div>
+      <script src="https://giscus.app/client.js"
+              data-repo="zss1109/zss1109.github.io"
+              data-repo-id="R_kgDOO3f52Q"
+              data-category="Announcements"
+              data-category-id="DIC_kwDOO3f52c4DIsxu"
+              data-mapping="pathname"
+              data-strict="0"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="top"
+              data-theme="light"
+              data-lang="zh-CN"
+              crossorigin="anonymous"
+              async>
+      </script>
+      <p class="gb-note" style="margin-top:16px">
+        留言需要登录 GitHub 账号后发表，内容会公开显示；请不要填写手机号、住址等隐私信息。
       </p>
     </div>
-
-    <!-- 留言墙 -->
-    <div>
-      <div class="wall-head">
-        <h3>最新留言</h3>
-      </div>
-      <div class="wall" id="gb-wall">
-        <div class="wall-empty">留言加载中…</div>
-      </div>
-    </div>
-
   </section>
 
 </main>
@@ -122,13 +90,10 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 朱莎莎 · 个人主页</span>
-      <span>留言数据由云服务安全存储</span>
+      <span>留言由 GitHub Discussions 驱动</span>
     </div>
   </div>
 </footer>
 
-<script src="assets/vendor/workbuddy-cloud-sdk.global.js"></script>
-<script src="assets/js/cloud-config.js"></script>
-<script src="assets/js/guestbook.js"></script>
 </body>
 </html>
